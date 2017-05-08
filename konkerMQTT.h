@@ -480,12 +480,11 @@ void startKonkerAP(String apNome, char mqtt_server[], char device_login[], char 
   }
 }
 
-
-void checkFWUpdates(String SERVER_URI, String BIN_PATH){
+void checkFWUpdates(String SERVER_URI, int PORT String BIN_PATH){
     Serial.println(SERVER_URI);
     Serial.print(BIN_PATH);
     Serial.println("");
-    t_httpUpdate_return ret = ESPhttpUpdate.update(SERVER_URI, 80, BIN_PATH);
+    t_httpUpdate_return ret = ESPhttpUpdate.update(SERVER_URI, PORT, BIN_PATH);
     switch(ret) {
         case HTTP_UPDATE_FAILED:
             Serial.println("[update] Update failed.");
@@ -498,3 +497,8 @@ void checkFWUpdates(String SERVER_URI, String BIN_PATH){
             break;
     }
   }
+
+
+void checkFWUpdates(String SERVER_URI, String BIN_PATH){
+  checkFWUpdates(SERVER_URI,80,BIN_PATH);
+}
