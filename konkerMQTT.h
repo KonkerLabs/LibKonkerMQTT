@@ -480,7 +480,7 @@ void startKonkerAP(String apNome, char mqtt_server[], char device_login[], char 
   }
 }
 
-void checkFWUpdates(String SERVER_URI, int PORT String BIN_PATH){
+void checkFWUpdates(String SERVER_URI, int PORT, String BIN_PATH){
     Serial.println(SERVER_URI);
     Serial.print(BIN_PATH);
     Serial.println("");
